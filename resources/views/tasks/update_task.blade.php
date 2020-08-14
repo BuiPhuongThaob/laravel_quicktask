@@ -1,36 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-center my-5">UPDATE TASK</h1>
-    <div class="row justify-content-center">
+    <h1 class="text-center my-5">{{ trans('task.update_task_title') }}</h1>
+    <div class="row justify-content-center ">
         <div class="col-md-8">
             <div class="card card-default">
                 <div class="card-header">
-                    Update task
+                    {{ trans('task.update_task_header') }}
                 </div>
 
                 <div class="card-body">
-                    <form action="/store-todos" method="POST">
+                    <form action="{{ route('tasks.update', $task->id) }}" method="POST">
                         @csrf
+                        @method('PATCH')
                         <div class="form-group">
                             <input 
                                 type="text" 
                                 class="form-control" 
-                                placeholder="Name" 
                                 name="name"
-                            >
+                                value="{{ $task->name }}">
                         </div>
                         <div class="form-group">
                             <textarea 
                                 name="description" 
-                                placeholder="Description" 
-                                cols="5" rows="5" 
-                                class="form-control">
-                            </textarea>
+                                rows="5" 
+                                class="form-control"
+                                placeholder="{{ $task->description->description }}"
+                                >{{ $task->description->description }}</textarea>
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-success">
-                                Update Task
+                                {{ trans('task.update_task_button') }}
                             </button>
                         </div>
                     </form>
