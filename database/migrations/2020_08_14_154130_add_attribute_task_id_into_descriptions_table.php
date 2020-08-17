@@ -16,7 +16,8 @@ class AddAttributeTaskIdIntoDescriptionsTable extends Migration
         Schema::table('descriptions', function (Blueprint $table) {
             if (!Schema::hasColumn('descriptions', 'task_id')) {
                 $table->integer('task_id')->unsigned();
-                $table->foreign('task_id')->references('id')->on('tasks');
+                $table->foreign('task_id')->references('id')->on('tasks')
+                    ->onDelete('cascade');
             }
         });
     }

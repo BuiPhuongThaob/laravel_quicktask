@@ -59,7 +59,9 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        $task = Task::findOrFail($id);
+
+        return view('tasks.show_task', compact('task'));
     }
 
     /**
@@ -101,6 +103,10 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task = Task::findOrFail($id);
+        $task->delete();
+
+        return redirect()->route('tasks.index')
+            ->with('success', trans('messages.delete_success_message'));
     }
 }

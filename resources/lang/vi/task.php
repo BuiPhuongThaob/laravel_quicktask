@@ -11,5 +11,7 @@
         'name' => 'Tên công việc',
         'description' => 'Mô tả',
         'delete' => 'Xóa',
+        'show' => 'Xem',
+        'show_task_title' => 'CHI TIẾT CÔNG VIỆC',
     ];
 ?>
