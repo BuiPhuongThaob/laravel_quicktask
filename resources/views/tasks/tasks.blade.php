@@ -90,6 +90,18 @@
                                                 </button>
                                             </form>
                                             </td>
+
+                                            <td>
+                                            <form 
+                                                action=" {{ route('tasks.show', $task->id) }} " 
+                                                method="GET">
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary float-right">
+                                                    <i class="fa fa-trash"></i> 
+                                                    {{ trans('task.show') }}
+                                                </button>
+                                            </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

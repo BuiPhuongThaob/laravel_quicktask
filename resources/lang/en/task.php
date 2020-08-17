@@ -12,5 +12,7 @@
         'description' => 'Description',
         'delete' => 'Delete',
         'edit' => 'Edit',
+        'show' => 'Show',
+        'show_task_title' => 'SHOW TASK',
     ];
 ?>
